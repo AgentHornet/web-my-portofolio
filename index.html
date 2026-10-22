@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio | Maulana Hidayat - Electrical Engineer</title>
+    <meta name="description"
+        content="Portofolio resmi Maulana Hidayat — Electrical Engineer. Spesialisasi SCADA AVEVA InTouch, Sistem ONLIMO KLHK, dan Uninterruptible Power Supply (UPS)." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0b0e14;
+            --bg2: #101520;
+            --surface: #171d2b;
+            --border: rgba(255, 255, 255, .08);
+            --accent: #00d2ff;
+            --accent2: #6366f1;
+            --accent3: #00f2a9;
+            --text: #e8eaf6;
+            --muted: #8d9bb0;
+            --radius: 14px;
+            --transition: .35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 99px;
+        }
+
+        /* ===== NOISE OVERLAY ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: .4;
+        }
+
+        /* ===== GLOW BLOBS ===== */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .18;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent);
+            top: -200px;
+            left: -200px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent2);
+            bottom: -150px;
+            right: -150px;
+        }
+
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--accent3);
+            top: 40%;
+            right: 10%;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2.5rem;
+            background: rgba(13, 15, 20, .6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(13, 15, 20, .92);
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: .9rem;
+            font-weight: 500;
+            position: relative;
+            transition: color var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 99px;
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: .5rem 1.3rem;
+            background: linear-gradient(135deg, var(--accent), #9c79ff);
+            color: #fff !important;
+            border-radius: 99px;
+            font-weight: 600 !important;
+            -webkit-text-fill-color: #fff !important;
+            box-shadow: 0 4px 20px rgba(108, 99, 255, .35);
+            transition: transform var(--transition), box-shadow var(--transition) !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 99, 255, .5) !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .4rem 1rem;
+            background: rgba(108, 99, 255, .12);
+            border: 1px solid rgba(108, 99, 255, .3);
+            border-radius: 99px;
+            font-size: .8rem;
+            color: #a89cff;
+            margin-bottom: 1.5rem;
+            animation: fadeUp .8s ease both;
+        }
+
+        .hero-badge::before {
+            content: '●';
+            color: var(--accent3);
+            font-size: .6rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            animation: fadeUp .8s .1s ease both;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--muted);
+            margin-top: 1rem;
+            animation: fadeUp .8s .2s ease both;
+            min-height: 2em;
+        }
+
+        .typed-cursor {
+            display: inline-block;
+            width: 2px;
+            background: var(--accent);
+            margin-left: 2px;
+            animation: blink .7s infinite;
+            vertical-align: text-bottom;
+            height: 1.2em;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            color: var(--muted);
+            margin: 1.5rem auto 0;
+            font-size: 1rem;
+            line-height: 1.8;
+            animation: fadeUp .8s .3s ease both;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+            animation: fadeUp .8s .4s ease both;
+        }
+
+        .btn-primary {
+            padding: .85rem 2rem;
+            background: linear-gradient(135deg, var(--accent), #9c79ff);
+            color: #fff;
+            border: none;
+            border-radius: 99px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(108, 99, 255, .4);
+            transition: transform var(--transition), box-shadow var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(108, 99, 255, .55);
+        }
+
+        .btn-secondary {
+            padding: .85rem 2rem;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color var(--transition), background var(--transition), transform var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(108, 99, 255, .08);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+            color: var(--muted);
+            font-size: .8rem;
+            animation: fadeUp .8s .6s ease both;
+        }
+
+        .scroll-indicator .mouse {
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--muted);
+            border-radius: 99px;
+            position: relative;
+        }
+
+        .scroll-indicator .mouse::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 8px;
+            background: var(--muted);
+            border-radius: 99px;
+            animation: scrollDown 2s infinite;
+        }
+
+        @keyframes scrollDown {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(14px);
+            }
+        }
+
+        /* ===== SECTION WRAPPER ===== */
+        .section-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-tag {
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: .75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--muted);
+            max-width: 550px;
+            line-height: 1.8;
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: var(--bg2);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .avatar-wrap {
+            position: relative;
+        }
+
+        .avatar-ring {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            padding: 3px;
+        }
+
+        .avatar-ring img,
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: calc(var(--radius) - 3px);
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-inner {
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: .75rem 1rem;
+            font-size: .85rem;
+            font-weight: 600;
+            backdrop-filter: blur(12px);
+        }
+
+        .avatar-badge span {
+            color: var(--accent3);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            text-align: center;
+            transition: transform var(--transition), border-color var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(108, 99, 255, .4);
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-card .label {
+            font-size: .8rem;
+            color: var(--muted);
+            margin-top: .2rem;
+        }
+
+        /* ===== SKILLS ===== */
+        #skills {}
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {}
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .5rem;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: var(--surface);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 99px;
+            width: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            transition: width 1.5s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .tech-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            margin-top: 3rem;
+        }
+
+        .chip {
+            padding: .5rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            font-size: .85rem;
+            font-weight: 500;
+            transition: border-color var(--transition), transform var(--transition), background var(--transition);
+            cursor: default;
+        }
+
+        .chip:hover {
+            border-color: var(--accent);
+            background: rgba(108, 99, 255, .1);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PROJECTS ===== */
+        #projects {
+            background: var(--bg2);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(108, 99, 255, .4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+        }
+
+        .project-thumb {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .5));
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap;
+            margin-bottom: .75rem;
+        }
+
+        .project-category {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: .4rem;
+        }
+
+        .project-tag {
+            font-size: .7rem;
+            padding: .2rem .7rem;
+            background: rgba(0, 210, 255, .12);
+            color: #7ee7ff;
+            border-radius: 99px;
+            font-weight: 600;
+            border: 1px solid rgba(0, 210, 255, .25);
+        }
+
+        .project-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+            line-height: 1.4;
+        }
+
+        .project-desc {
+            color: var(--muted);
+            font-size: .875rem;
+            line-height: 1.7;
+        }
+
+        .project-highlights {
+            margin-top: 1rem;
+            padding: .85rem 1rem;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: .82rem;
+        }
+
+        .highlight-label {
+            font-size: .74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--accent3);
+            margin-bottom: .5rem;
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .project-highlights li {
+            position: relative;
+            padding-left: 1.2rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .project-highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .project-highlights li strong {
+            color: #fff;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.25rem;
+            align-items: center;
+        }
+
+        .project-badge-status {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--accent3);
+            background: rgba(0, 242, 169, .1);
+            border: 1px solid rgba(0, 242, 169, .25);
+            padding: .35rem .85rem;
+            border-radius: 99px;
+        }
+
+        .project-link {
+            font-size: .85rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            transition: color var(--transition);
+        }
+
+        .project-link:hover {
+            color: #7ee7ff;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {}
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {}
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            transition: border-color var(--transition), transform var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: rgba(108, 99, 255, .4);
+            transform: translateX(4px);
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            background: rgba(108, 99, 255, .12);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-item-label {
+            font-size: .8rem;
+            color: var(--muted);
+            margin-bottom: .15rem;
+        }
+
+        .contact-item-value {
+            font-weight: 600;
+            font-size: .95rem;
+        }
+
+        .socials {
+            display: flex;
+            gap: .75rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: border-color var(--transition), background var(--transition), transform var(--transition);
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent);
+            background: rgba(108, 99, 255, .12);
+            transform: translateY(-3px);
+        }
+
+        /* FORM */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .form-group label {
+            font-size: .875rem;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: .85rem 1.1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            font-family: inherit;
+            font-size: .95rem;
+            transition: border-color var(--transition), box-shadow var(--transition);
+            outline: none;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, .2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .submit-btn {
+            margin-top: .5rem;
+            padding: .9rem 2rem;
+            background: linear-gradient(135deg, var(--accent), #9c79ff);
+            border: none;
+            border-radius: 99px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(108, 99, 255, .4);
+            transition: transform var(--transition), box-shadow var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(108, 99, 255, .55);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(67, 233, 123, .08);
+            border: 1px solid rgba(67, 233, 123, .3);
+            border-radius: var(--radius);
+            color: var(--accent3);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+            font-size: .875rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13, 15, 20, .97);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1.25rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .avatar-wrap {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">⚡ Maulana Hidayat</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact" class="nav-cta">Hubungi Saya</a></li>
+        </ul>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-badge">⚡ Electrical Engineer</div>
+        <h1 class="hero-title">
+            Halo, Saya<br />
+            <span class="gradient-text" id="heroName">Maulana Hidayat</span>
+        </h1>
+        <p class="hero-subtitle" id="typedText"><span class="typed-cursor"></span></p>
+        <p class="hero-desc">
+            Electrical Engineer yang berdedikasi dalam perancangan &amp; implementasi sistem otomasi industri, SCADA
+            AVEVA InTouch, pemantauan kualitas air ONLIMO KLHK, dan keandalan sistem daya cadangan UPS.
+        </p>
+        <div class="hero-ctas">
+            <a href="#projects" class="btn-primary">⚡ Lihat Proyek</a>
+            <a href="#contact" class="btn-secondary">✉️ Kontak Saya</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll ke bawah</span>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-wrapper">
+            <div class="section-tag reveal">Tentang Saya</div>
+            <h2 class="section-title reveal">Profil &amp; Dedikasi</h2>
+
+            <div class="about-grid">
+                <div class="avatar-wrap reveal">
+                    <div class="avatar-ring">
+                        <img src="images.jpeg" alt="Maulana Hidayat"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <div class="avatar-inner" style="display:none;">⚡</div>
+                    </div>
+                    <div class="avatar-badge">
+                        <span>⚡</span> Electrical Engineer
+                    </div>
+                </div>
+                <div>
+                    <p class="section-desc reveal" style="max-width:100%; margin-bottom:1.25rem;">
+                        Saya adalah <strong>Maulana Hidayat</strong>, seorang <strong>Electrical Engineer</strong> yang
+                        berpengalaman dalam perancangan, otomatisasi sistem industri, instrumentasi kontrol pemantauan
+                        lingkungan, dan sistem proteksi keandalan daya kelistrikan.
+                    </p>
+                    <p class="section-desc reveal" style="max-width:100%;">
+                        Memiliki rekam jejak dalam implementasi proyek-proyek strategis seperti <strong>Water Quality
+                            Monitoring System ONLIMO KLHK</strong>, perancangan Human-Machine Interface <strong>SCADA
+                            AVEVA InTouch</strong> pada SPALD Pulau Pramuka Kepulauan Seribu, serta instalasi dan
+                        commissioning sistem <strong>Uninterruptible Power Supply (UPS)</strong> hingga kapasitas 100kVA
+                        pada instalasi rumah sakit vital.
+                    </p>
+                    <div class="about-stats reveal">
+                        <div class="stat-card">
+                            <div class="number" id="statProjects">0</div>
+                            <div class="label">Proyek Strategis</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" id="statExp">0</div>
+                            <div class="label">Total kVA UPS Ditangani</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" id="statClients">0</div>
+                            <div class="label">% Keandalan &amp; Uptime</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-wrapper">
+            <div class="section-tag reveal">Keahlian</div>
+            <h2 class="section-title reveal">Kompetensi Teknik &amp; Sistem</h2>
+            <p class="section-desc reveal">Penguasaan standar rekayasa kelistrikan, SCADA industri, sistem daya kritis,
+                dan instrumentasi telemetri.</p>
+
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Akan diisi JS -->
+            </div>
+
+            <div class="tech-chips reveal" id="techChips"></div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-wrapper">
+            <div class="section-tag reveal">Portofolio Proyek</div>
+            <h2 class="section-title reveal">Proyek Yang Pernah Dilakukan</h2>
+            <p class="section-desc reveal">Implementasi rekayasa kelistrikan, SCADA AVEVA InTouch, pemantauan ONLIMO
+                KLHK, dan UPS fasilitas kesehatan.</p>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Akan diisi JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-wrapper">
+            <div class="section-tag reveal">Kontak</div>
+            <h2 class="section-title reveal">Mari Berkolaborasi 🤝</h2>
+            <p class="section-desc reveal">Terbuka untuk konsultasi teknis, perancangan sistem, dan kolaborasi proyek
+                engineering.</p>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-item">
+                        <div class="contact-icon">⚡</div>
+                        <div>
+                            <div class="contact-item-label">Keahlian Utama</div>
+                            <div class="contact-item-value">Electrical Engineer</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <div class="contact-item-label">Email</div>
+                            <div class="contact-item-value"><a href="mailto:maulanahidayat684@gmail.com"
+                                    style="color: inherit; text-decoration: none;">maulanahidayat684@gmail.com</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <div class="contact-item-label">LinkedIn</div>
+                            <div class="contact-item-value"><a href="https://www.linkedin.com/in/maulana-hidayat-el"
+                                    target="_blank" rel="noopener noreferrer"
+                                    style="color: inherit; text-decoration: none;">maulana-hidayat-el ↗</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <div class="contact-item-label">Lokasi</div>
+                            <div class="contact-item-value">Indonesia 🇮🇩</div>
+                        </div>
+                    </div>
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/in/maulana-hidayat-el" target="_blank"
+                            rel="noopener noreferrer" class="social-btn" title="LinkedIn">💼</a>
+                        <a href="#" class="social-btn" title="WhatsApp">📱</a>
+                        <a href="mailto:maulanahidayat684@gmail.com" class="social-btn" title="Email">✉️</a>
+                        <a href="#" class="social-btn" title="GitHub">🐙</a>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fname">Nama</label>
+                                <input type="text" id="fname" placeholder="Nama Anda / Perusahaan" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="femail">Email</label>
+                                <input type="email" id="femail" placeholder="email@perusahaan.com" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fsubject">Subjek</label>
+                            <input type="text" id="fsubject" placeholder="e.g. Diskusi Proyek SCADA / Sistem UPS" />
+                        </div>
+                        <div class="form-group">
+                            <label for="fmessage">Pesan</label>
+                            <textarea id="fmessage" rows="5"
+                                placeholder="Tuliskan kebutuhan proyek atau pertanyaan teknis Anda..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Kirim Pesan</span> ✈️
+                        </button>
+                    </form>
+                    <div class="form-success" id="formSuccess">
+                        🎉 Pesan terkirim! Terima kasih, saya akan segera merespons Anda.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Portofolio Profesional &copy; 2025 <a href="#hero">Maulana Hidayat</a> | Electrical Engineer</p>
+    </footer>
+
+    <script>
+        /* ===== DATA ===== */
+        const skills = [
+            { name: 'SCADA & AVEVA InTouch HMI', level: 95 },
+            { name: 'Water Quality Monitoring System (ONLIMO)', level: 95 },
+            { name: 'Uninterruptible Power Supply (UPS) Systems', level: 96 },
+            { name: 'Telemetry RTU & Multi-Parameter Sensors', level: 90 },
+            { name: 'Electrical Power Distribution & SLD', level: 88 },
+            { name: 'Industrial Automation & PLC Control', level: 86 },
+        ];
+
+        const techChips = [
+            'AVEVA InTouch HMI', 'SCADA HMI', 'ONLIMO KLHK', 'UPS 100kVA',
+            'UPS 10kVA & 20kVA', 'SPALD Kep. Seribu', 'Telemetry RTU',
+            'Water Quality Sensors', 'Power Quality & Protection', 'Battery Bank Testing',
+            'Modbus RTU/TCP', 'Single Line Diagram', 'Industrial Automation', 'Commissioning'
+        ];
+
+        const projects = [
+            {
+                emoji: '💧',
+                bg: 'linear-gradient(135deg, #09203f 0%, #174d6c 100%)',
+                category: 'Environmental IoT & Telemetry',
+                tags: ['KLHK', 'ONLIMO', 'Water Quality', 'Telemetry RTU', 'Multi-Sensor'],
+                title: 'Water Quality Monitoring System ONLIMO KLHK',
+                desc: 'Implementasi dan integrasi sistem pemantauan kualitas air kontinu, otomatis, dan daring (Online Monitoring - ONLIMO) terhubung langsung ke server pusat Kementerian Lingkungan Hidup dan Kehutanan (KLHK).',
+                highlights: [
+                    'Integrasi sensor multi-parameter air (pH, Dissolved Oxygen, TDS, TSS, Turbidity, Suhu)',
+                    'Konfigurasi RTU / Datalogger untuk transmisi data telemetri otomatis ke server KLHK',
+                    'Kalibrasi instrumen analitik lapangan secara presisi & verifikasi integritas data'
+                ],
+                status: 'Operasional & Terverifikasi'
+            },
+            {
+                emoji: '🖥️',
+                bg: 'linear-gradient(135deg, #1b1740 0%, #302070 100%)',
+                category: 'SCADA & Industrial Automation',
+                tags: ['AVEVA InTouch HMI', 'SCADA HMI', 'SPALD', 'Kepulauan Seribu', 'Otomasi Industri'],
+                title: 'Perancangan SCADA AVEVA InTouch HMI SPALD Pulau Pramuka Kep. Seribu',
+                desc: 'Perancangan arsitektur dan antarmuka Human-Machine Interface (HMI) berbasis AVEVA InTouch SCADA pada Sistem Pengolahan Air Limbah Domestik (SPALD) di Pulau Pramuka, Kepulauan Seribu.',
+                highlights: [
+                    'Visualisasi proses pengolahan limbah dinamis & status motor/pompa real-time',
+                    'Konfigurasi manajemen alarm otomatis, grafik trending proses, dan pencatatan riwayat kejadian',
+                    'Integrasi komunikasi data lapangan dengan PLC pengendali untuk kendali operasi optimal'
+                ],
+                status: 'Implementasi Sukses'
+            },
+            {
+                emoji: '⚡',
+                bg: 'linear-gradient(135deg, #2b1704 0%, #5e3208 100%)',
+                category: 'Critical Power & Energy Storage',
+                tags: ['UPS System', 'Critical Power', 'Healthcare Facilities', '10kVA - 100kVA', 'Hospital Power'],
+                title: 'Uninterruptible Power Supply (UPS) System',
+                desc: 'Instalasi, konfigurasi, integrasi baterai bank, pengujian beban (load bank testing), dan commissioning sistem proteksi daya cadangan tanpa jeda (UPS) pada fasilitas kesehatan kritis.',
+                highlights: [
+                    '<strong>RSUD Muaro Jambi 100kVA</strong>: Proteksi suplai daya tanpa jeda untuk ruang operasi (OK), ICU, dan instalasi gawat darurat',
+                    '<strong>RSUD Ahmad Ripin 10kVA dan 20kVA</strong>: Pengamanan stabilitas tegangan & suplai daya instrumen laboratorium medis serta diagnostik',
+                    'Pengujian pembebanan (load bank testing), kalibrasi automatic bypass switch, dan integrasi panel distribusi'
+                ],
+                status: 'Commissioning Selesai'
+            }
+        ];
+
+        /* ===== RENDER SKILLS ===== */
+        const skillsGrid = document.getElementById('skillsGrid');
+        skills.forEach(s => {
+            skillsGrid.innerHTML += `
+        <div class="skill-item reveal">
+          <div class="skill-header">
+            <span>${s.name}</span><span>${s.level}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-level="${s.level}"></div>
+          </div>
+        </div>`;
+        });
+
+        const chipsEl = document.getElementById('techChips');
+        techChips.forEach(t => { chipsEl.innerHTML += `<span class="chip">${t}</span>`; });
+
+        /* ===== RENDER PROJECTS ===== */
+        const grid = document.getElementById('projectsGrid');
+        projects.forEach(p => {
+            const highlightsHtml = p.highlights && p.highlights.length ? `
+              <div class="project-highlights">
+                <div class="highlight-label">⚡ Lingkup &amp; Spesifikasi:</div>
+                <ul>
+                  ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+                </ul>
+              </div>` : '';
+
+            grid.innerHTML += `
+        <div class="project-card reveal">
+          <div class="project-thumb" style="background:${p.bg}">
+            <span style="position:relative;z-index:1">${p.emoji}</span>
+          </div>
+          <div class="project-body">
+            <div class="project-category">${p.category}</div>
+            <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
+            <div class="project-title">${p.title}</div>
+            <div class="project-desc">${p.desc}</div>
+            ${highlightsHtml}
+            <div class="project-links">
+              <span class="project-badge-status">✅ ${p.status}</span>
+            </div>
+          </div>
+        </div>`;
+        });
+
+        /* ===== TYPED TEXT ===== */
+        const phrases = [
+            'Electrical Engineer ⚡',
+            'SCADA & Automation Specialist 🏭',
+            'Water Quality Monitoring (ONLIMO) 💧',
+            'Critical Power & UPS Specialist 🔋',
+            'AVEVA InTouch HMI Designer 🖥️',
+        ];
+        let pi = 0, ci = 0, deleting = false;
+        const typedEl = document.getElementById('typedText');
+
+        function type() {
+            const phrase = phrases[pi];
+            if (!deleting) {
+                typedEl.innerHTML = phrase.slice(0, ci + 1) + '<span class="typed-cursor"></span>';
+                ci++;
+                if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
+            } else {
+                typedEl.innerHTML = phrase.slice(0, ci - 1) + '<span class="typed-cursor"></span>';
+                ci--;
+                if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); return; }
+            }
+            setTimeout(type, deleting ? 55 : 90);
+        }
+        type();
+
+        /* ===== SCROLL REVEAL ===== */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    // Animate skill bars
+                    e.target.querySelectorAll('.skill-fill').forEach(bar => {
+                        bar.style.width = bar.dataset.level + '%';
+                    });
+                    if (e.target.classList.contains('skill-item')) {
+                        const bar = e.target.querySelector('.skill-fill');
+                        if (bar) bar.style.width = bar.dataset.level + '%';
+                    }
+                    // Count-up stats
+                    if (e.target.id === 'statProjects') countUp('statProjects', 3);
+                    if (e.target.id === 'statExp') countUp('statExp', 130);
+                    if (e.target.id === 'statClients') countUp('statClients', 100);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal, #statProjects, #statExp, #statClients').forEach(el => observer.observe(el));
+
+        /* ===== COUNT UP ===== */
+        function countUp(id, target) {
+            const el = document.getElementById(id);
+            let count = 0;
+            const step = Math.ceil(target / 30);
+            const interval = setInterval(() => {
+                count = Math.min(count + step, target);
+                el.textContent = count + '+';
+                if (count >= target) clearInterval(interval);
+            }, 50);
+        }
+
+        /* ===== NAVBAR SCROLL ===== */
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        /* ===== MOBILE MENU ===== */
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+        /* ===== CONTACT FORM ===== */
+        document.getElementById('contactForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+            form.style.opacity = '0';
+            form.style.transition = '.5s';
+            setTimeout(() => {
+                form.style.display = 'none';
+                success.style.display = 'block';
+            }, 500);
+        });
+
+        /* ===== PARALLAX BLOBS ===== */
+        document.addEventListener('mousemove', e => {
+            const mx = (e.clientX / window.innerWidth - .5) * 30;
+            const my = (e.clientY / window.innerHeight - .5) * 30;
+            document.querySelector('.blob-1').style.transform = `translate(${mx}px,${my}px)`;
+            document.querySelector('.blob-2').style.transform = `translate(${-mx}px,${-my}px)`;
+            document.querySelector('.blob-3').style.transform = `translate(${mx * .5}px,${my * .5}px)`;
+        });
+    </script>
+</body>
+
+</html>
